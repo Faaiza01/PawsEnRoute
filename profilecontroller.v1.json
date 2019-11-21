@@ -1,0 +1,223 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ProfileController",
+    "version": "1.0",
+    "description": "Handles profile detail.",
+    "contact": {
+      "name": "PawsEnRoute"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "profile"
+    }
+  ],
+  "paths": {
+    "/profile/Completedriverprofile": {
+      "post": {
+        "summary": "Complete Driver Profile",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "Success"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "ProfileController"
+        ],
+        "operationId": "3",
+        "description": "Complete Driver profile after registration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteDriverProfileDto"
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/profile/GetDriverProfile": {
+      "post": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompleteDriverProfileDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "ProfileController"
+        ],
+        "operationId": "4",
+        "description": "Admin gets the detail of Driver",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Auth",
+            "description": "Token",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "DriverId": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "DriverId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CompleteDriverProfileDto": {
+        "title": "CompleteDriverProfileDto",
+        "type": "object",
+        "description": "Driver Profle Complete",
+        "properties": {
+          "Address": {
+            "type": "string"
+          },
+          "MobilePhone": {
+            "type": "string"
+          },
+          "HomePhone": {
+            "type": "string"
+          },
+          "WorkPhone": {
+            "type": "string"
+          },
+          "PreferredPhone": {
+            "type": "string"
+          },
+          "Age": {
+            "type": "string"
+          },
+          "ProfilePicture": {
+            "type": "array",
+            "description": "Profile Image of User",
+            "items": {}
+          },
+          "Experience": {
+            "type": "string"
+          },
+          "AvailabilityDays": {
+            "type": "array",
+            "items": {}
+          },
+          "DriverLicense": {
+            "type": "array",
+            "description": "License Picture",
+            "items": {}
+          },
+          "VehicleRegisteration": {
+            "type": "array",
+            "description": "Picture of Vehicle Registeration",
+            "items": {}
+          },
+          "InsuranceDocument": {
+            "type": "array",
+            "description": "Picture of Insuance document.",
+            "items": {}
+          }
+        }
+      },
+      "DriverProfileDetailDto": {
+        "title": "DriverProfileDetail",
+        "type": "object",
+        "properties": {
+          "FirstName": {
+            "type": "string"
+          },
+          "LastName": {
+            "type": "string"
+          },
+          "Email": {
+            "type": "string"
+          },
+          "PhoneNumber": {
+            "type": "number"
+          },
+          "Address": {
+            "type": "string"
+          },
+          "Availability": {
+            "type": "string"
+          },
+          "Experience": {
+            "type": "string"
+          },
+          "DriverLicense": {
+            "type": "array",
+            "description": "Picture of License",
+            "items": {}
+          },
+          "VehicleRegistration": {
+            "type": "array",
+            "description": "Picture of Registation",
+            "items": {}
+          },
+          "InsuranceDocument": {
+            "type": "array",
+            "description": "Picture of Insurance",
+            "items": {}
+          },
+          "": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "FirstName",
+          "LastName",
+          "Email",
+          "PhoneNumber",
+          "Address",
+          "Availability",
+          "Experience",
+          "DriverLicense",
+          "VehicleRegistration",
+          "InsuranceDocument",
+          ""
+        ]
+      }
+    }
+  }
+}
